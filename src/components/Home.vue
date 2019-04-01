@@ -1,8 +1,5 @@
 <template>
-  <div id="app">
-    <div id="container">
-      <h2>Monaco Editor Auto-completion test for <code>.yaml</code> files</h2>
-    </div>
+  <div id="container">
   </div>
 </template>
 
@@ -14,7 +11,6 @@ export default {
   name: "app",
   mounted() {
     monaco.languages.registerCompletionItemProvider("yaml", {
-      // eslint-disable-next-line no-unused-vars
       provideCompletionItems: (model, position) => {
         return [
           {
@@ -29,7 +25,6 @@ export default {
 
     monaco.languages.registerSignatureHelpProvider("yaml", {
       signatureHelpTriggerCharacters: ["(", ","],
-      // eslint-disable-next-line no-unused-vars
       provideSignatureHelp: (model, position, token) => {
         return {
           activeParameter: 0,
@@ -64,19 +59,19 @@ export default {
     monaco.editor.create(document.getElementById("container"), {
       value: "",
       language: "yaml",
-      theme: "vs-dark",
-      fontSize: "25px"
+      theme: "vs"
     });
   }
 };
 </script>
 
 <style>
-#container {
-  height: 30rem;
-  width: 50rem;
-  display: grid;
-  justify-items: center;
-  padding: 3rem;
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
